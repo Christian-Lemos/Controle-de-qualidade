@@ -1,6 +1,7 @@
 <?php
 	include_once "../../util/ConexaoBD.php";
 	include_once "../../model/Usuario.php";
+	include_once '../../model/InteradorDB.php';
 	include_once "../../dao/UsuarioDAO.php";
 	include_once "../../model/Erro.php";
 	if(!isset($_SESSION))

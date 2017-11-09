@@ -2,6 +2,7 @@
 	include_once "../util/ConexaoBD.php";
 	include_once "../model/Erro.php";
 	include_once "../model/Usuario.php";
+	include_once "../model/InteradorDB.php";
 	include_once "../dao/ProjetoDAO.php";
 
 	session_start();
@@ -10,11 +11,6 @@
 	{
 		die();
 	}
-
-	echo "Nome: ".$_POST['nome']."<br />";
-	echo "Gerente: ".$_POST['gerente']."<br />";
-	echo "contrato: ".$_POST['cadastro_projeto_contrato']."<br />";
-	print_r($_POST['nome']);
 
 	$con = ConexaoBD::CriarConexao();
 	$dao = new ProjetoDAO($con);

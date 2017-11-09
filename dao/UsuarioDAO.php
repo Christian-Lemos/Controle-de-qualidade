@@ -1,12 +1,13 @@
 <?php
-	class UsuarioDAO
+
+	class UsuarioDAO extends InteradorDB
 	{
 
-		private  $con;
 
 		public function __construct($con)
 		{
 			$this->con = $con;
+
 		}
 
 		public function getUsuarios()
@@ -19,6 +20,8 @@
 
 		public function Autenticar($login, $senha)
 		{
+			$login = parent::LimparString($login);
+
 			$maximas_tentativas = 5;
 			$minutos_para_mt = 30;
 			$sql = "select ip, tentativas, data_hora from usuario_tentativas where ip = ?";
@@ -95,6 +98,10 @@
 
 		public function AdicionarUsuario($login, $nome, $senha, $email, $admin)
 		{
+			$login = parent::LimparString($login);
+			$nome = parent::LimparString($nome);
+			$email = parent::LimparString($email);
+
 
 			$valido = $this->ChecarUnicos($login, $email);
 			if($valido != null)
@@ -125,6 +132,8 @@
 		
 		public function removerUsuario($id)
 		{
+
+			$id = parent::LimparString($id);
 			if($id == $_SESSION['usuario']->getID())
 			{
 				return new Erro(30, 'Não pode excluir o usuário atual logado');
@@ -138,6 +147,9 @@
 
 		public function AtualizarLogin($id ,$login)
 		{
+
+			$id = parent::LimparString($id);
+			$login = parent::LimparString($login);
 			$stmt = $this->con->prepare("select login from usuario where id != ? and login = ? limit 1");
 			$stmt->bindValue(1, $id);
 			$stmt->bindValue(2, $login);
@@ -161,6 +173,8 @@
 
 		public function AtualizarEmail($id ,$email)
 		{
+			$id = parent::LimparString($id);
+			$email = parent::LimparString($email);
 			$email = strtolower($email);
 			$stmt = $this->con->prepare("select email from usuario where id != ? and email = ? limit 1");
 			$stmt->bindValue(1, $id);
@@ -184,6 +198,7 @@
 		}
 		public function AtualizarSenha($id ,$senha)
 		{
+			$id = parent::LimparString($id);
 			$senha = hash('SHA512', $senha);
 			$stmt = $this->con->prepare("update usuario set senha = ? where id = ?");
 			$stmt->bindValue(1, $senha);
@@ -196,6 +211,8 @@
 
 		public function AtualizarNome($id, $nome)
 		{
+			$id = parent::LimparString($id);
+			$nome = parent::LimparString($nome);
 			$stmt = $this->con->prepare("update usuario set nome = ? where id = ?");
 			$stmt->bindValue(1, $nome);
 			$stmt->bindValue(2, $id);
@@ -210,6 +227,7 @@
 
 		public function AtualizarAdmin($id, $admin)
 		{
+			$id = parent::LimparString($id);
 			if($admin == false && $_SESSION['usuario']->getID() == $id && $_SESSION['usuario']->getAdmin() == 1)
 			{
 				return new Erro(31, "Não se pode tirar o privilégio administrador na conta administradora em uso");
@@ -226,6 +244,12 @@
 
 		public function getUsuariosFiltro($coluna, $ordem, $primeiro, $ultimo)
 		{
+
+			$coluna = parent::LimparString($coluna);
+			$ordem = parent::LimparString($ordem);
+			$primeiro = parent::LimparString($primeiro);
+			$ultimo = parent::LimparString($ultimo);
+
 			$stmt = $this->con->prepare('select id, login, nome, email, admin from usuario order by '.$coluna.' '.$ordem.' limit '.$primeiro.', '.$ultimo);
 			$stmt->execute();
 
@@ -235,6 +259,7 @@
 
 		public function encontrarUsuario($id)
 		{
+			$id = parent::LimparString($id);
 			$stmt = $this->con->prepare("select id, login, nome, email, admin from usuario where id = ?");
 			$stmt->bindValue(1, $id);
 			$stmt->execute();
@@ -253,6 +278,8 @@
 
 		private function ChecarUnicos($login, $email)
 		{
+			$login = parent::LimparString($login);
+			$email = parent::LimparString($email);
 			$email = strtolower($email);
 			$stmt = $this->con->prepare("select login from usuario where login = ? limit 1");
 			$stmt->bindValue(1, $login);

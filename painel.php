@@ -70,13 +70,8 @@
 				$("#modal-main").hide();
 				$("#modal-box").css("height", '');
 				$("#modal-box").html('');
+				console.log("fechando");
 			}
 		</script>
-			<?php
-				if($_SESSION['usuario']->getAdmin() == true)
-				{
-					include_once 'js/gatilho_editar_usuario_btns.html';
-				}
-			?>
 	</body>
 </html>

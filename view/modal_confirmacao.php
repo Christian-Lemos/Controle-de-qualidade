@@ -1,7 +1,8 @@
-<?
+<?php
 
 	include_once '../util/ConexaoBD.php';
 	include_once '../model/Usuario.php';
+	include_once '../model/InteradorDB.php';
 	include_once '../dao/UsuarioDAO.php';
 
 	$con = ConexaoBD::CriarConexao();
@@ -33,14 +34,13 @@
 
 	<button type = "button" class = "modal_confirmacao_button" id = "modal_confirmacao_nao" onclick="fecharmodal()">Não</button>
 
-	<button type = "button" class = "modal_confirmacao_button" id = "modal_confirmacao_sim">Sim</button>
+	<button type = "button" class = "modal_confirmacao_button" id = "modal_confirmacao_sim" onclick= "acaosim()">Sim</button>
 
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function()
-	{	
-		$("#modal-box").on('click', '#modal_confirmacao_sim', function()
+
+		function acaosim()
 		{
 			<?php if($_POST['acao'] == 'deletarusuario')
 			{?>
@@ -70,7 +70,6 @@
 					}
 				});
 			<?php } ?>
-		});
-	});
+		}
 
 </script>

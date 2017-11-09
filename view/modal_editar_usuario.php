@@ -3,7 +3,7 @@
 	include_once '../util/ConexaoBD.php';
 
 	include_once '../model/Usuario.php';
-
+	include_once '../model/InteradorDB.php';
 	include_once '../dao/UsuarioDAO.php';
 
 

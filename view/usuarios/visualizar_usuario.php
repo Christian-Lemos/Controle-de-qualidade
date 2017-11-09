@@ -22,6 +22,7 @@
 	include_once "../../util/ConexaoBD.php";
 	include_once "../../model/Usuario.php";
 	include_once '../../model/Erro.php';
+		include_once "../../model/InteradorDB.php";
 	include_once '../../dao/UsuarioDAO.php';
 	$con = ConexaoBD::CriarConexao();
 	$dao = new UsuarioDAO($con);
@@ -190,14 +191,14 @@
 			 	return;
 			 }
 			 procurandoListaUsuario = true;
-			 var f1 = $("#filtro1").val();
-			 var f2 = $("#filtro2").val();
+			 var ordenacao = $("#filtro1").val();
+			 var ordem = $("#filtro2").val();
 			 
 			 $.ajax({
 
-			 	url : 'controller/ordenador.php',
+			 	url : "controller/carregadorPaginacaoCadUsuarios.php",
 			 	method : 'POST',
-			 	data : {tabela : 'usuario', por : f1, ordem : f2},
+			 	data : { inicio : 0, fim: resultadosPorPagina, ordenacao : ordenacao, ordem : ordem},
 
 			 	beforeSend : function()
 			 	{
@@ -253,4 +254,90 @@
 
 		}
 	});
+</script>
+
+<script>
+
+$("#pa-main").on('click', '.editar_usuario_btn', function()
+
+{
+
+	var procid = $(this).attr('data-id');
+
+	$.ajax({
+
+		url : 'view/modal_editar_usuario.php',
+
+		method : 'POST',
+
+		data : {id : procid},
+
+
+
+		beforeSend : function()
+
+		{
+
+			$("#modal-main").show();
+
+			$("#modal-box").html('<div class="loader"></div>');
+
+		},
+
+		success : function (resposta)
+
+		{
+
+			$("#modal-box").html(resposta);
+
+		}
+
+	});
+
+});
+
+
+
+$("#pa-main").on('click', '.excluir_usuario_btn', function()
+
+{
+
+	$("#modal-box").css("height", 'auto');
+
+	var procid = $(this).attr('data-id');
+
+	$.ajax({
+
+		url : 'view/modal_confirmacao.php',
+
+		method : 'POST',
+
+		data : {acao: 'deletarusuario', id : procid},
+
+
+
+		beforeSend : function()
+
+		{
+
+			$("#modal-main").show();
+
+			$("#modal-box").html('<div class="loader"></div>');
+
+		},
+
+		success : function (resposta)
+
+		{
+
+			$("#modal-box").html(resposta);
+
+			return;
+
+		}
+
+	});
+
+});
+
 </script>

@@ -130,7 +130,6 @@ $(document).ready(function()
 
 			url : 'controller/AdicionarProjeto.php',
 			method : 'POST',
-			//data : {nome : $("#cadastro_projeto_nome").val(), gerente, cadastro_projeto_contrato, desenvolvedores :}
 			data : data,
 			beforeSend : function()
 			{

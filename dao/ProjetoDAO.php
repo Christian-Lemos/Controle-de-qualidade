@@ -1,7 +1,6 @@
 <?php
-	class ProjetoDAO
+	class ProjetoDAO extends InteradorDB
 	{
-		private $con;
 		public function __construct($con)
 		{
 			$this->con = $con;
@@ -10,13 +9,14 @@
 		{
 			try
 			{
+				$nome = parent::LimparString($nome);
+				$gerente = parent::LimparString($gerente);
+				$assinaturaContrato = parent::LimparString($assinaturaContrato);
+
 				$assinaturaContrato = str_replace('/', '-', $assinaturaContrato);
 				$assinaturaContrato = date('Y-m-d', strtotime($assinaturaContrato));
 				$assinaturaContrato = strval($assinaturaContrato);
 				$gerente = intval($gerente);
-				/*echo $nome."<br />";
-				echo $assinaturaContrato."<br />";
-				echo $gerente."<br />";*/
 
 				$stmt = $this->con->prepare("insert into projeto(gerente, nome, datainicio) values (?, ?, ?)");
 				$stmt->bindValue(1, $gerente);
@@ -30,6 +30,7 @@
 				$resultado = $stmt->fetch(PDO::FETCH_NUM);
 				for($i = 0; $i < count($desenvolvedores); $i++)
 				{
+					$desenvolvedores[$i] = parent::LimparString($desenvolvedores[$i]);
 					$stmt = $this->con->prepare("insert into projeto_dev values (?, ?)");
 					$stmt->bindValue(1, $resultado[0]);
 					$stmt->bindValue(2, $desenvolvedores[$i]);
@@ -39,8 +40,6 @@
 			}
 			catch(PDOException $e)
 			{
-				//echo "deu erro";
-				//$this->con->rollBack();
 				return new Erro(50, "Um erro interno ocorreu, tente novamente mais tarde");
 			}
 
@@ -54,6 +53,14 @@
 			return $stmt;
 
 		}
+		
+		public function getTotalProjetos()
+		{
+			$stmt = $this->con->prepare("select count(*) as numero from projeto");
+			$stmt->execute();
+			$total = $stmt->fetch(PDO::FETCH_OBJ)->numero;
+			return $total;
+		}	
 	}
 
 ?>
