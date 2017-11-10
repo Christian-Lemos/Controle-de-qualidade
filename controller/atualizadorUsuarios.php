@@ -18,7 +18,7 @@
 	{
 		case 'login':
 			$retorno = $dao->AtualizarLogin($_POST['id'], $_POST['novo']);
-			if(get_class($retorno) == "Erro")
+			if($retorno != null && get_class($retorno) == "Erro")
 			{
 				echo $retorno->getMensagem();
 			}
@@ -34,7 +34,7 @@
 		case 'email':
 			$retorno = $dao->AtualizarEmail($_POST['id'], $_POST['novo']);
 
-			if(get_class($retorno) == "Erro")
+			if($retorno != null && get_class($retorno) == "Erro")
 			{
 				echo $retorno->getMensagem();
 			}
@@ -43,10 +43,10 @@
 				echo "sucesso";
 			}
 			break;
-		case 'senha':
+			case 'senha':
 			$retorno = $dao->AtualizarSenha($_POST['id'], $_POST['novo']);
 
-			if(get_class($retorno) == "Erro")
+			if($retorno != null && get_class($retorno) == "Erro")
 			{
 				echo $retorno->getMensagem();
 			}
@@ -57,7 +57,7 @@
 			break;
 		case 'admin':
 			$retorno = $dao->AtualizarAdmin($_POST['id'], $_POST['novo']);
-			if(get_class($retorno) == "Erro")
+			if($retorno != null && get_class($retorno) == "Erro")
 			{
 				echo $retorno->getMensagem();
 			}

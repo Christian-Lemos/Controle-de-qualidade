@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 09/11/2017 às 10:07
+-- Tempo de geração: 10/11/2017 às 09:35
 -- Versão do servidor: 5.5.51-38.2
 -- Versão do PHP: 5.6.30
 
@@ -122,17 +122,7 @@ CREATE TABLE IF NOT EXISTS `projeto` (
   `datainicio` date NOT NULL,
   `datatermino` date DEFAULT NULL,
   `nomegerente` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Fazendo dump de dados para tabela `projeto`
---
-
-INSERT INTO `projeto` (`id`, `gerente`, `nome`, `datainicio`, `datatermino`, `nomegerente`) VALUES
-(36, 26, 'Christian Lemos', '2017-11-08', NULL, 'Eduardo Lara'),
-(37, 26, 'Tower Service', '2017-10-12', NULL, 'Eduardo Lara'),
-(38, 30, 'Teste', '2017-11-08', NULL, 'Giancarlo Ribeiro'),
-(39, 16, 'Termo Frio', '2017-11-07', NULL, 'RenÃ© Ferarri');
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Gatilhos `projeto`
@@ -167,18 +157,6 @@ CREATE TABLE IF NOT EXISTS `projeto_dev` (
   `idusuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Fazendo dump de dados para tabela `projeto_dev`
---
-
-INSERT INTO `projeto_dev` (`idprojeto`, `idusuario`) VALUES
-(36, 18),
-(37, 18),
-(39, 18),
-(37, 19),
-(36, 20),
-(39, 21);
-
 -- --------------------------------------------------------
 
 --
@@ -188,42 +166,19 @@ INSERT INTO `projeto_dev` (`idprojeto`, `idusuario`) VALUES
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int(11) NOT NULL,
   `login` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `senha` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `senha` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Fazendo dump de dados para tabela `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `login`, `senha`, `nome`, `email`, `admin`) VALUES
-(15, 'windrider', 'be6c6b21a2c83cd6b6b410cb98ef2d7c4b2596d5c586d72f8ca6be64c00df2f65df29692ec4b74b8f27e8c643a90a68192853e48f23833de30b9c9361d2cdd45', 'Christian Lemos', 'christian@compactjr.com', 1),
-(16, 'rene', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'RenÃ© Ferarri', 'rene@compactjr.com', 0),
-(17, 'adriana', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Adriana Soares', 'adriana@compactjr.com', 0),
-(18, 'xandao', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Alexandre Medina', 'alexandre@compactjr.com', 0),
-(19, 'rovadder', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Arthur Rovedder', 'arthurrovedder@compactjr.com', 0),
-(20, 'soccal', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Bernardo  Soccal', 'bernardo.soccal@compactjr.com', 0),
-(21, 'bernardo', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Bernardo da Costa', 'bernardosidom@hotmail.com', 0),
-(22, 'coletto', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Carlos Coletto', 'carlos@compactjr.com', 0),
-(23, 'christo', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Douglas Christo', 'douglas@compactjr.com', 0),
-(24, 'nedel', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Eduardo Nedel', 'eduardo.nedel@compactjr.com', 0),
-(25, 'hirt', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Eduardo Hirt', 'eduardohirt@compactjr.com', 0),
-(26, 'lara', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Eduardo Lara', 'eduardoschmlara@compactjr.com', 0),
-(27, 'edyson', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Edyson Sebastiany', 'edyson@compactjr.com', 0),
-(28, 'fernanda', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Fernanda Rieffel', 'fernanda@compactjr.com', 0),
-(29, 'doyle', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Gabriel Balk', 'gabriel.doyle@compactjr.com', 0),
-(30, 'giancarlo', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Giancarlo Ribeiro', 'giancarlo@compactjr.com', 0),
-(31, 'sacchet', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Giovanni Sacchet', 'giovanni@compactjr.com', 0),
-(32, 'giu', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Giuliano Benedetti', 'giuliano@compactjr.com', 0),
-(33, 'martins', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Henrique Martins', 'henrique@compactjr.com', 0),
-(34, 'stalker', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Henrique Rodrigues', 'henrique.rodrigres@compactjr.com', 0),
-(35, 'isadora', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Isadora Stangarlin', 'isadora@compactjr.com', 0),
-(36, 'jennifer', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Jennifer Carvalho', 'jennifer@compactjr.com', 0),
-(37, 'victor', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'JosÃ© Viriato', 'jose@compactjr.com', 0),
-(38, 'joao', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'JoÃ£o VÃ­tor', 'joao.magalhaes@compactjr.com', 0),
-(39, 'kelvin', '05df7da6cbbba6e72e05f85fe2557a83894d128c1b4b82ee30881c47c130bf2c42fb6933415ece42185a26694874e35e85c2d6c9949bb7df31930d862edbb5f3', 'Kelvin Pirolla', 'kelvin@compactjr.com', 0);
+(47, 'windrider', '$2y$10$EPpZTu5U2pmR3HMagy0ppefdNy7g3tHGWBv1ryxWSkqcomlch8arO', 'Christian Lemos', 'christian@compactjr.com', 1),
+(48, 'cara2', '$2y$10$3OERU4ncW6gyfNw5CakUjeSZeOk8t4m.aPCdYik/DvU.uDd9mDNVa', 'teste', 'christian2@compactjr.com', 1);
 
 -- --------------------------------------------------------
 
@@ -329,12 +284,12 @@ ALTER TABLE `persona`
 -- AUTO_INCREMENT de tabela `projeto`
 --
 ALTER TABLE `projeto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 --
 -- Restrições para dumps de tabelas
 --

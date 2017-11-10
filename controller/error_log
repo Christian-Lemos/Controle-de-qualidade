@@ -11,3 +11,17 @@
 [09-Nov-2017 21:01:21] PHP Fatal error:  Call to undefined function  limparstring() in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 12
 [09-Nov-2017 21:02:27] PHP Fatal error:  Call to undefined function  limparstring() in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 12
 [09-Nov-2017 21:03:02] PHP Fatal error:  Call to undefined function  limparstring() in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 13
+[09-Nov-2017 22:10:49] PHP Fatal error:  Call to undefined function  password_hash() in /home/compa806/public_html/qualidade/dao/UsuarioDAO.php on line 116
+[09-Nov-2017 18:22:10 America/Chicago] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/compa806/public_html/qualidade/dao/UsuarioDAO.php on line 60
+[09-Nov-2017 18:22:39 America/Chicago] PHP Fatal error:  Class 'UsuarioDAO' not found in /home/compa806/public_html/qualidade/controller/controleLogin.php on line 14
+[09-Nov-2017 18:26:37 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
+[09-Nov-2017 18:27:46 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
+[09-Nov-2017 18:30:26 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
+[09-Nov-2017 18:30:28 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
+[09-Nov-2017 18:30:28 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
+[09-Nov-2017 18:30:29 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
+[09-Nov-2017 18:30:29 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
+[09-Nov-2017 18:30:34 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
+[09-Nov-2017 18:30:35 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
+[09-Nov-2017 18:30:36 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
+[09-Nov-2017 18:30:37 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49

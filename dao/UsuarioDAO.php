@@ -53,16 +53,13 @@
 			}
 
 			$login = strtolower($login);
-			$senha = hash('sha512', $senha);	
-			$sql = "select id, login, nome, email, admin from usuario where login = ? and senha = ?";
+			$sql = "select id, login, nome, email, admin, senha from usuario where login = ? limit 1";
 			$stmt = $this->con->prepare($sql);
 			$stmt->bindValue(1, $login);
-			$stmt->bindValue(2, $senha);
 			$stmt->execute();
-
-			if($stmt->rowCount() > 0)
+			$linha = $stmt->fetch(PDO::FETCH_NUM);
+			if($stmt->rowCount() > 0 && password_verify($senha, $linha[5]) == true)
 			{
-				$linha = $stmt->fetch(PDO::FETCH_NUM);
 				$stmt = $this->con->prepare("delete from usuario_tentativas where ip = ?");
 				$stmt->bindValue(1, $_SERVER['REMOTE_ADDR']);
 				$stmt->execute();
@@ -114,7 +111,8 @@
 			{
 				$login = strtolower($login);
 				$email = strtolower($email);
-				$senha = hash('sha512', $senha);
+				//$senha = hash('sha512', $senha);
+				$senha = password_hash($senha, PASSWORD_DEFAULT);
 				$stmt = $this->con->prepare("insert into usuario (login, nome, senha, email, admin) values (?, ?, ?, ?, ?)");
 				$stmt->bindValue(1, $login);
 				$stmt->bindValue(2, $nome);
@@ -199,7 +197,7 @@
 		public function AtualizarSenha($id ,$senha)
 		{
 			$id = parent::LimparString($id);
-			$senha = hash('SHA512', $senha);
+			$senha = password_hash($senha, PASSWORD_DEFAULT);
 			$stmt = $this->con->prepare("update usuario set senha = ? where id = ?");
 			$stmt->bindValue(1, $senha);
 			$stmt->bindValue(2, $id);
