@@ -1,3 +1,14 @@
+<?php
+	include_once "../../model/Usuario.php";
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
+	if(!isset ($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin() == false)
+	{
+		die();
+	}
+?>
 
 <div class = "ordenacao_btn_main">
 	<div class = "ordenacao_btn_div">
@@ -23,8 +34,6 @@
 
 <?php
 	include_once "../../util/ConexaoBD.php";
-	include_once "../../model/Usuario.php";
-	include_once '../../model/Erro.php';
 	include_once '../../model/InteradorDB.php';
 	include_once '../../dao/UsuarioDAO.php';
 	include_once '../../dao/ProjetoDAO.php';
@@ -56,11 +65,11 @@
 			<td>'.$linha->nome.'</td>
 			<td>'.$linha->nomegerente.'</td>
 			<td>'.str_replace('-', '/', date('d-m-Y', strtotime($linha->datainicio))).'</td>
-			<td>'.$linha->datatermino.'</td>
+			<td>'.str_replace('-', '/', date('d-m-Y', strtotime($linha->datatermino))).'</td>
 			<td>
-				<div class = "editar_excluir_usuario_btn_div">
-					<button type="button" class= "editar_usuario_btn" data-id="'.$linha->id.'">Editar</button>
-					<button type="button" class= "excluir_usuario_btn" data-id="'.$linha->id.'">Excluir</button>
+				<div class = "editar_excluir_projeto_btn_div">
+					<button type="button" class= "editar_projeto_btn" data-id="'.$linha->id.'">Editar</button>
+					<button type="button" class= "excluir_projeto_btn" data-id="'.$linha->id.'">Excluir</button>
 				</div>
 			</td>
 		</tr>
@@ -237,4 +246,60 @@
 			}
 		}
 	});
+</script>
+
+<script type = "text/javascript">
+
+$("#pa-main").on('click', '.editar_projeto_btn', function()
+{
+	var procid = $(this).attr('data-id');
+	$.ajax({
+		url: 'view/modal_editar_projeto.php',
+		method: 'POST',
+		data: {
+			id: procid
+		},
+		beforeSend: function()
+		{
+			$("#modal-main").show();
+			$("#modal-box").html('<div class="loader"></div>');
+		},
+
+		success: function(resposta)
+		{
+			$("#modal-box").html(resposta);
+		}
+	});
+});
+
+$("#pa-main").on('click', '.excluir_projeto_btn', function()
+{
+	$("#modal-box").css("height", 'auto');
+
+	var procid = $(this).data('id');
+	
+	
+	
+	$.ajax({
+		url: 'view/modal_confirmacao.php',
+		method: 'POST',
+		data: {
+			acao: 'deletarprojeto',
+			id: procid
+		},
+		beforeSend: function()
+		{
+			$("#modal-main").show();
+			$("#modal-box").html('<div class="loader"></div>');
+		},
+		
+		success: function(resposta)
+		{
+			$("#modal-box").html(resposta);
+			return;
+		}
+
+	});
+});
+
 </script>

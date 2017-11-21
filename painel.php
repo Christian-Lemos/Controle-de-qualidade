@@ -55,12 +55,11 @@
 
 		<div id = "modal-main">
 			<div id = "modal-box">
-			</div>
-			
+			</div>			
 		</div>
 
 		<script type = "text/javascript" src = "js/jquery.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+		<script type = "text/javascript" src = "js/select2.js"></script>
 		<script type = "text/javascript" src = "js/carregador.js"></script>
 		<script type = "text/javascript" src = "js/cadastrador.js"></script>
 		<script type = "text/javascript" src = "js/jqueryui.js"></script>

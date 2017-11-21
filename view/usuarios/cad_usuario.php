@@ -1,3 +1,15 @@
+<?php
+	include_once '../../model/Usuario.php';
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
+	if(!isset ($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin() == false)
+	{
+		die();
+	}
+?>
+
  <form id = "form_cadastro_usuario" onsubmit="return false">
 	<label for="login">Login:</label>
 	<input type = "text" name = "login" id = "cadastro_usuario_login" placeholder="Digite aqui o login do usuario" />

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 10/11/2017 às 09:35
+-- Tempo de geração: 21/11/2017 às 18:03
 -- Versão do servidor: 5.5.51-38.2
 -- Versão do PHP: 5.6.30
 
@@ -24,7 +24,7 @@ DELIMITER $$
 --
 -- Funções
 --
-CREATE DEFINER=`compa806`@`localhost` FUNCTION `encontrarnomegerente`(idgerente int) RETURNS varchar(50) CHARSET utf8 COLLATE utf8_unicode_ci
+CREATE DEFINER=`compa806`@`localhost` FUNCTION `encontrarnomeusuario`(`idgerente` INT) RETURNS varchar(50) CHARSET utf8 COLLATE utf8_unicode_ci
 BEGIN
 	DECLARE med varchar(50);
 	SELECT nome INTO med from usuario WHERE id = idgerente;
@@ -122,7 +122,14 @@ CREATE TABLE IF NOT EXISTS `projeto` (
   `datainicio` date NOT NULL,
   `datatermino` date DEFAULT NULL,
   `nomegerente` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `projeto`
+--
+
+INSERT INTO `projeto` (`id`, `gerente`, `nome`, `datainicio`, `datatermino`, `nomegerente`) VALUES
+(50, 49, 'Projeto Qualidade', '2017-11-19', '2017-11-23', 'cara1');
 
 --
 -- Gatilhos `projeto`
@@ -132,7 +139,7 @@ CREATE TRIGGER `projeto_atualiza_gerente` BEFORE UPDATE ON `projeto`
  FOR EACH ROW begin 
 
 if NEW.gerente != OLD.gerente then
-	set new.nomegerente = encontrarnomegerente(new.gerente);
+	set new.nomegerente = encontrarnomeusuario(new.gerente);
 end if;
 end
 $$
@@ -141,7 +148,7 @@ DELIMITER $$
 CREATE TRIGGER `trigger_de_inserir_projeto` BEFORE INSERT ON `projeto`
  FOR EACH ROW begin 
 
-	set new.nomegerente = encontrarnomegerente(new.gerente);
+	set new.nomegerente = encontrarnomeusuario(new.gerente);
 end
 $$
 DELIMITER ;
@@ -154,8 +161,36 @@ DELIMITER ;
 
 CREATE TABLE IF NOT EXISTS `projeto_dev` (
   `idprojeto` int(11) NOT NULL,
-  `idusuario` int(11) NOT NULL
+  `idusuario` int(11) NOT NULL,
+  `nomeusuario` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `projeto_dev`
+--
+
+INSERT INTO `projeto_dev` (`idprojeto`, `idusuario`, `nomeusuario`) VALUES
+(50, 47, 'Christian Lemos');
+
+--
+-- Gatilhos `projeto_dev`
+--
+DELIMITER $$
+CREATE TRIGGER `projeto_dev_atualiza_nome_dev` BEFORE UPDATE ON `projeto_dev`
+ FOR EACH ROW begin
+	if new.idusuario != old.idusuario THEN
+		set new.nomeusuario = encontrarnomeusuario(new.idusuario);
+	end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `projeto_dev_insere_nome_dev` BEFORE INSERT ON `projeto_dev`
+ FOR EACH ROW begin
+	set new.nomeusuario = encontrarnomeusuario(new.idusuario);
+end
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -170,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nome` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Fazendo dump de dados para tabela `usuario`
@@ -178,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id`, `login`, `senha`, `nome`, `email`, `admin`) VALUES
 (47, 'windrider', '$2y$10$EPpZTu5U2pmR3HMagy0ppefdNy7g3tHGWBv1ryxWSkqcomlch8arO', 'Christian Lemos', 'christian@compactjr.com', 1),
-(48, 'cara2', '$2y$10$3OERU4ncW6gyfNw5CakUjeSZeOk8t4m.aPCdYik/DvU.uDd9mDNVa', 'teste', 'christian2@compactjr.com', 1);
+(49, 'cara1', '$2y$10$nXCwFFqmM.9g69BnCntQKOuGGkHrwhbk08TRaqXSreuILDc1QbNIi', 'cara1', 'cara1@123.com', 0);
 
 -- --------------------------------------------------------
 
@@ -284,12 +319,12 @@ ALTER TABLE `persona`
 -- AUTO_INCREMENT de tabela `projeto`
 --
 ALTER TABLE `projeto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- Restrições para dumps de tabelas
 --

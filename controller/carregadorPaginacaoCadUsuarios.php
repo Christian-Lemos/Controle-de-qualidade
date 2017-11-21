@@ -2,11 +2,18 @@
 
 		include_once "../util/ConexaoBD.php";
 		include_once "../model/Usuario.php";
-		include_once '../model/Erro.php';
 		include_once "../model/InteradorDB.php";
 		include_once '../dao/UsuarioDAO.php';
 
-
+		if(!isset($_SESSION))
+		{
+			session_start();
+		}
+			
+		if(!isset($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin() == false)
+		{
+			die();
+		}
 
 		$con = ConexaoBD::CriarConexao();
 		$dao = new UsuarioDAO($con);

@@ -1,3 +1,15 @@
+<?php
+	include_once "../../model/Usuario.php";
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
+	if(!isset ($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin() == false)
+	{
+		die();
+	}
+?>
+
 <div class = "ordenacao_btn_main">
 	<div class = "ordenacao_btn_div">
 		<label for = "filtro1">Ordenar por:</label>
@@ -20,10 +32,13 @@
 
 <?php
 	include_once "../../util/ConexaoBD.php";
-	include_once "../../model/Usuario.php";
-	include_once '../../model/Erro.php';
-		include_once "../../model/InteradorDB.php";
+	
+	include_once "../../model/InteradorDB.php";
 	include_once '../../dao/UsuarioDAO.php';
+
+
+	
+
 	$con = ConexaoBD::CriarConexao();
 	$dao = new UsuarioDAO($con);
 	$resultadosPorPagina = 5 ;
@@ -256,88 +271,56 @@
 	});
 </script>
 
-<script>
+<script type = "text/javascript">
 
 $("#pa-main").on('click', '.editar_usuario_btn', function()
-
 {
-
 	var procid = $(this).attr('data-id');
-
 	$.ajax({
-
-		url : 'view/modal_editar_usuario.php',
-
-		method : 'POST',
-
-		data : {id : procid},
-
-
-
-		beforeSend : function()
-
+		url: 'view/modal_editar_usuario.php',
+		method: 'POST',
+		data: {
+			id: procid
+		},
+		beforeSend: function()
 		{
-
 			$("#modal-main").show();
-
 			$("#modal-box").html('<div class="loader"></div>');
-
 		},
 
-		success : function (resposta)
-
+		success: function(resposta)
 		{
-
 			$("#modal-box").html(resposta);
-
 		}
-
 	});
-
 });
 
-
-
 $("#pa-main").on('click', '.excluir_usuario_btn', function()
-
 {
-
 	$("#modal-box").css("height", 'auto');
 
 	var procid = $(this).attr('data-id');
 
 	$.ajax({
-
-		url : 'view/modal_confirmacao.php',
-
-		method : 'POST',
-
-		data : {acao: 'deletarusuario', id : procid},
-
-
-
-		beforeSend : function()
-
-		{
-
-			$("#modal-main").show();
-
-			$("#modal-box").html('<div class="loader"></div>');
-
+		url: 'view/modal_confirmacao.php',
+		method: 'POST',
+		data: {
+			acao: 'deletarusuario',
+			id: procid
 		},
-
-		success : function (resposta)
-
+		beforeSend: function()
 		{
-
+			$("#modal-main").show();
+			$("#modal-box").html('<div class="loader"></div>');
+		},
+		
+		success: function(resposta)
+		{
 			$("#modal-box").html(resposta);
-
 			return;
-
 		}
 
 	});
-
 });
 
 </script>

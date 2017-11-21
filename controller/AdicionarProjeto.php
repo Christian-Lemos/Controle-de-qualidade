@@ -1,6 +1,5 @@
 <?php
 	include_once "../util/ConexaoBD.php";
-	include_once "../model/Erro.php";
 	include_once "../model/Usuario.php";
 	include_once "../model/InteradorDB.php";
 	include_once "../dao/ProjetoDAO.php";
@@ -11,19 +10,17 @@
 	{
 		die();
 	}
-
-	$con = ConexaoBD::CriarConexao();
-	$dao = new ProjetoDAO($con);
-	$resultado = $dao->AdicionarProjeto($_POST['nome'], $_POST['gerente'], $_POST['desenvolvedores'], $_POST['cadastro_projeto_contrato']);
-	unset($con);
-
-	if($resultado != null)
+	try
 	{
-		echo $resultado->getMensagem();
+		$con = ConexaoBD::CriarConexao();
+		$dao = new ProjetoDAO($con);
+		$dao->AdicionarProjeto($_POST['nome'], $_POST['gerente'], $_POST['desenvolvedores'], $_POST['cadastro_projeto_contrato']);
+		echo $sucesso;
+		unset($con);
 	}
-	else
+	catch(Exception $e)
 	{
-		echo "sucesso";
+		echo $e->getMessage();
 	}
 
 

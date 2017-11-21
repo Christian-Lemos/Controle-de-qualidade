@@ -1,19 +1,23 @@
 <?php
+	include_once '../model/Usuario.php';
 
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
+	if(!isset ($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin() == false)
+	{
+		die();
+	}
 	include_once '../util/ConexaoBD.php';
 
-	include_once '../model/Usuario.php';
+	
 	include_once '../model/InteradorDB.php';
 	include_once '../dao/UsuarioDAO.php';
-
-
+	
 
 	$con = ConexaoBD::CriarConexao();
-
 	$dao = new UsuarioDAO($con);
-
-
-
 	$usuario = $dao->encontrarUsuario($_POST['id']);
 
 ?>

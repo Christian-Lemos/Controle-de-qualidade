@@ -18,6 +18,7 @@
 {
 	width:100% !important;
 	text-align: left;
+	z-index: 999999999999;
 }
 
 *
@@ -172,21 +173,22 @@ label, input
     color: white;
     width: 55px;
 }
-
+.editar_projeto_btn,
 .editar_usuario_btn
 {
     background-color: #6969de;
 }
-
+.editar_projeto_btn:hover,
 .editar_usuario_btn:hover
 {
     background-color: #4a4a90;
 }
+.excluir_projeto_btn,
 .excluir_usuario_btn
 {
 	background-color: #aa311f;
 }
-
+.excluir_projeto_btn:hover,
 .excluir_usuario_btn:hover
 {
 	background-color:#772216;
@@ -442,6 +444,8 @@ main h1
 {
 	background-color:#4a4a90;
 }
+
+.mostrar_edit_projeto_div_btn_div,
 .mostrar_edit_usuario_div_btn_div
 {
 	text-align:left;

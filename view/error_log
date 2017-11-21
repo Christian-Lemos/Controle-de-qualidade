@@ -2,3 +2,72 @@
 [30-Oct-2017 17:59:42] PHP Fatal error:  Call to a member function getEmail() on a non-object in /home/compa806/public_html/qualidade/view/modal_editar_usuario.php on line 25
 [31-Oct-2017 21:49:19] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/compa806/public_html/qualidade/view/modal_confirmacao.php on line 15
 [09-Nov-2017 21:19:17] PHP Fatal error:  Class 'InteradorDB' not found in /home/compa806/public_html/qualidade/dao/UsuarioDAO.php on line 3
+[10-Nov-2017 07:40:24 America/Chicago] PHP Parse error:  syntax error, unexpected '$dataTermino' (T_VARIABLE) in /home/compa806/public_html/qualidade/model/Projeto.php on line 20
+[10-Nov-2017 07:40:48 America/Chicago] PHP Fatal error:  Class 'UsuarioDAO' not found in /home/compa806/public_html/qualidade/view/modal_confirmacao.php on line 19
+[10-Nov-2017 07:41:54 America/Chicago] PHP Fatal error:  Class 'Projeto' not found in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 66
+[10-Nov-2017 08:48:32 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/compa806/public_html/qualidade/view/modal_confirmacao.php on line 98
+[10-Nov-2017 09:25:33 America/Chicago] PHP Fatal error:  Call to a member function getID() on a non-object in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 82
+[10-Nov-2017 09:26:05 America/Chicago] PHP Fatal error:  Call to a member function getID() on a non-object in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 82
+[11-Nov-2017 08:57:35 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 36
+[11-Nov-2017 09:02:21 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 34
+[11-Nov-2017 09:10:38 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 34
+[11-Nov-2017 09:12:32 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 36
+[11-Nov-2017 09:24:43 America/Chicago] PHP Fatal error:  Class name must be a valid object or a string in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 67
+[11-Nov-2017 09:25:53 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 36
+[11-Nov-2017 09:26:40 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 36
+[11-Nov-2017 09:27:24 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 36
+[11-Nov-2017 09:34:11 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 36
+[11-Nov-2017 09:35:04 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 34
+[11-Nov-2017 09:38:53 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 34
+[11-Nov-2017 09:40:32 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 37
+[11-Nov-2017 09:52:53 America/Chicago] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 30
+[11-Nov-2017 09:57:30 America/Chicago] PHP Fatal error:  Cannot use [] for reading in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 29
+[11-Nov-2017 10:05:25 America/Chicago] PHP Parse error:  syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 30
+[11-Nov-2017 10:07:48 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 37
+[11-Nov-2017 10:07:48 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 37
+[11-Nov-2017 10:08:57 America/Chicago] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 37
+[11-Nov-2017 10:09:48 America/Chicago] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 33
+[16-Nov-2017 09:11:40 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 4
+[16-Nov-2017 09:11:40 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 4
+[16-Nov-2017 09:13:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 6
+[17-Nov-2017 11:34:57 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 6
+[17-Nov-2017 11:34:57 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 6
+[17-Nov-2017 11:34:57 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 6
+[21-Nov-2017 09:48:44 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 34
+[21-Nov-2017 09:49:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 4
+[21-Nov-2017 09:52:31 America/Chicago] PHP Parse error:  syntax error, unexpected ''.</option>'' (T_CONSTANT_ENCAPSED_STRING) in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 45
+[21-Nov-2017 09:55:09 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getDataInicio() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 16
+[21-Nov-2017 09:56:24 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 5
+[21-Nov-2017 09:56:47 America/Chicago] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 38
+[21-Nov-2017 09:57:35 America/Chicago] PHP Parse error:  syntax error, unexpected '$desenvolvedores' (T_VARIABLE) in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 38
+[21-Nov-2017 11:01:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function getDataInicio() on null in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/view/modal_editar_projeto.php on line 29

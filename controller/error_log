@@ -1,27 +1,62 @@
-[09-Nov-2017 18:04:24] PHP Warning:  include_once(../../util/ConexaoBD.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 3
-[09-Nov-2017 18:04:24] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening '../../util/ConexaoBD.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 3
-[09-Nov-2017 18:04:24] PHP Warning:  include_once(../../model/Usuario.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 4
-[09-Nov-2017 18:04:24] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening '../../model/Usuario.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 4
-[09-Nov-2017 18:04:24] PHP Warning:  include_once(../../model/Erro.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 5
-[09-Nov-2017 18:04:24] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening '../../model/Erro.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 5
-[09-Nov-2017 18:04:24] PHP Warning:  include_once(../../dao/ProjetoDAO.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 6
-[09-Nov-2017 18:04:24] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening '../../dao/ProjetoDAO.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 6
-[09-Nov-2017 18:04:24] PHP Fatal error:  Class 'ConexaoBD' not found in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 9
-[09-Nov-2017 18:04:59] PHP Fatal error:  Class 'UsuarioDAO' not found in /home/compa806/public_html/qualidade/controller/carregadorPaginacaoCadProjetos.php on line 10
-[09-Nov-2017 21:01:21] PHP Fatal error:  Call to undefined function  limparstring() in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 12
-[09-Nov-2017 21:02:27] PHP Fatal error:  Call to undefined function  limparstring() in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 12
-[09-Nov-2017 21:03:02] PHP Fatal error:  Call to undefined function  limparstring() in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 13
-[09-Nov-2017 22:10:49] PHP Fatal error:  Call to undefined function  password_hash() in /home/compa806/public_html/qualidade/dao/UsuarioDAO.php on line 116
-[09-Nov-2017 18:22:10 America/Chicago] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/compa806/public_html/qualidade/dao/UsuarioDAO.php on line 60
-[09-Nov-2017 18:22:39 America/Chicago] PHP Fatal error:  Class 'UsuarioDAO' not found in /home/compa806/public_html/qualidade/controller/controleLogin.php on line 14
-[09-Nov-2017 18:26:37 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
-[09-Nov-2017 18:27:46 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
-[09-Nov-2017 18:30:26 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
-[09-Nov-2017 18:30:28 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
-[09-Nov-2017 18:30:28 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
-[09-Nov-2017 18:30:29 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
-[09-Nov-2017 18:30:29 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 21
-[09-Nov-2017 18:30:34 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
-[09-Nov-2017 18:30:35 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
-[09-Nov-2017 18:30:36 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
-[09-Nov-2017 18:30:37 America/Chicago] PHP Warning:  get_class() called without object from outside a class in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 49
+[10-Nov-2017 08:49:44 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/compa806/public_html/qualidade/controller/apagadorProjetos.php on line 4
+[10-Nov-2017 08:50:46 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/compa806/public_html/qualidade/controller/apagadorProjetos.php on line 4
+[10-Nov-2017 08:51:57 America/Chicago] PHP Fatal error:  main(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /home/compa806/public_html/qualidade/controller/apagadorProjetos.php on line 4
+[10-Nov-2017 08:53:08 America/Chicago] PHP Fatal error:  main(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /home/compa806/public_html/qualidade/controller/apagadorProjetos.php on line 5
+[16-Nov-2017 05:34:05 America/Chicago] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 8
+[16-Nov-2017 05:35:42 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home/compa806/public_html/qualidade/controller/atualizadorUsuarios.php on line 8
+[16-Nov-2017 07:10:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on null in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php:107
+Stack trace:
+#0 /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php(25): ProjetoDAO->AtualizarNome('50', '')
+#1 {main}
+  thrown in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 107
+[16-Nov-2017 07:11:06 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on null in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php:107
+Stack trace:
+#0 /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php(25): ProjetoDAO->AtualizarNome('50', '')
+#1 {main}
+  thrown in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 107
+[16-Nov-2017 07:11:08 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on null in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php:107
+Stack trace:
+#0 /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php(25): ProjetoDAO->AtualizarNome('50', '')
+#1 {main}
+  thrown in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 107
+[16-Nov-2017 07:11:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on null in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php:107
+Stack trace:
+#0 /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php(25): ProjetoDAO->AtualizarNome('50', '')
+#1 {main}
+  thrown in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 107
+[16-Nov-2017 07:11:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on null in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php:107
+Stack trace:
+#0 /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php(25): ProjetoDAO->AtualizarNome('50', '')
+#1 {main}
+  thrown in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 107
+[21-Nov-2017 11:22:14 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:23:26 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:23:57 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:24:03 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:24:09 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:24:11 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:25:05 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'ProjetoDAO' not found in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/compa806/public_html/qualidade/controller/atualizadorProjetos.php on line 18
+[21-Nov-2017 11:27:37 America/Chicago] PHP Parse error:  syntax error, unexpected '$stmt' (T_VARIABLE), expecting ',' or ';' in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 170
+[21-Nov-2017 11:28:09 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 171
+[21-Nov-2017 11:29:25 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/compa806/public_html/qualidade/dao/ProjetoDAO.php on line 172
