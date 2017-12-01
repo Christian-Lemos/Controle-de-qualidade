@@ -6,7 +6,7 @@ class ConexaoBD
 	{
 		try
 		{
-			$con = new PDO("mysql: host=216.172.172.102;dbname=base", "usuario", "senha");
+			$con = new PDO("mysql: host=localhost;dbname=compa806_qualidade", "root", "");
 			return $con;
 		}
 		catch(PDOExCeption $e)

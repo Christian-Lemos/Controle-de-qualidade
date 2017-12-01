@@ -1,12 +1,13 @@
 <?php
 	class ProjetoDAO extends InteradorDB
 	{
-		public function __construct($con)
+		public function __construct(PDO $con)
 		{
 			$this->con = $con;
 		}
-		public function AdicionarProjeto($nome, $gerente, $desenvolvedores, $assinaturaContrato)
+		public function AdicionarProjeto(string $nome, int $gerente, $desenvolvedores, string $assinaturaContrato)
 		{
+                    
 			try
 			{
 				$nome = parent::LimparString($nome);
@@ -23,7 +24,6 @@
 				$stmt->bindValue(2, $nome);
 				$stmt->bindValue(3, $assinaturaContrato);
 				$stmt->execute();
-
 				$stmt = $this->con->prepare("select id as teste from projeto where id = LAST_INSERT_ID()");
 				$stmt->execute();
 
@@ -45,7 +45,7 @@
 
 		}
 
-		public function encontrarProjeto($id)
+		public function encontrarProjeto(int $id)
 		{
 			$stmt = $this->con->prepare("select * from projeto where id = ? limit 1");
 			$stmt->bindValue(1, $id);
@@ -70,9 +70,8 @@
 		}
 		
 		
-		public function removerProjeto($id)
+		public function removerProjeto(int $id)
 		{
-
 			$id = parent::LimparString($id);
 			$stmt = $this->con->prepare("delete from projeto where id = ?");
 			$stmt->bindValue(1, $id);
@@ -80,7 +79,7 @@
 			return null;
 		}
 
-		public function getProjetosFiltro($coluna, $ordem, $primeiro, $ultimo)
+		public function getProjetosFiltro(string $coluna, string $ordem, int $primeiro, int $ultimo)
 		{
 			$stmt = $this->con->prepare('select * from projeto order by '.$coluna.' '.$ordem.' limit '.$primeiro.', '.$ultimo);
 			$stmt->execute();
@@ -97,7 +96,7 @@
 			return $total;
 		}
 
-		public function AtualizarNome($id, $novonome)
+		public function AtualizarNome(int $id, string $novonome)
 		{
 			$id = parent::LimparString($id);
 			$novonome = parent::LimparString($novonome);
@@ -108,7 +107,7 @@
 			$stmt->execute();
 		}
 		
-		public function AtualizarGerente($id, $novogerente)
+		public function AtualizarGerente(int $id, int $novogerente)
 		{
 			$id = parent::LimparString($id);
 			$novogerente = parent::LimparString($novogerente);
@@ -119,7 +118,7 @@
 			$stmt->execute();
 		}
 		
-		public function AtualizarDesenvolvedores($id, $desenvolvedores)
+		public function AtualizarDesenvolvedores(int $id, $desenvolvedores)
 		{
 			$id = parent::LimparString($id);
 			
@@ -174,7 +173,7 @@
 		}
 		
 		
-		public function AtualizarDataInicio($id, $novo)
+		public function AtualizarDataInicio(int $id, string $novo)
 		{
 			$id = parent::LimparString($id);
 			$novo = parent::LimparString($novo); 
@@ -200,7 +199,7 @@
 			$stmt->bindValue(2, $id);
 			$stmt->execute();
 		}
-		public function AtualizarDataTermino($id, $novo)
+		public function AtualizarDataTermino(int $id, string $novo)
 		{
 			$id = parent::LimparString($id);
 			$novo = parent::LimparString($novo); 

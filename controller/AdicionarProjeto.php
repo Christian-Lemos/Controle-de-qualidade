@@ -15,7 +15,7 @@
 		$con = ConexaoBD::CriarConexao();
 		$dao = new ProjetoDAO($con);
 		$dao->AdicionarProjeto($_POST['nome'], $_POST['gerente'], $_POST['desenvolvedores'], $_POST['cadastro_projeto_contrato']);
-		echo $sucesso;
+		echo "sucesso";
 		unset($con);
 	}
 	catch(Exception $e)

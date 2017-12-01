@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 		<link rel = "stylesheet" type = "text/css" href = "css/painel_layout.css" />
+                		<script type = "text/javascript" src = "js/jquery.js"></script>
 	</head>
 	<body>
 		<aside>
@@ -58,7 +59,6 @@
 			</div>			
 		</div>
 
-		<script type = "text/javascript" src = "js/jquery.js"></script>
 		<script type = "text/javascript" src = "js/select2.js"></script>
 		<script type = "text/javascript" src = "js/carregador.js"></script>
 		<script type = "text/javascript" src = "js/cadastrador.js"></script>

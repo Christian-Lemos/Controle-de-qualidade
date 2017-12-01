@@ -1,7 +1,7 @@
 <?php
 	class UsuarioDAO extends InteradorDB
 	{
-		public function __construct($con)
+		public function __construct(PDO $con)
 		{
 			$this->con = $con;
 
@@ -15,7 +15,7 @@
 			return $stmt;
 		}	
 
-		public function Autenticar($login, $senha)
+		public function Autenticar(string $login, string $senha)
 		{
 			$login = parent::LimparString($login);
 
@@ -88,7 +88,7 @@
 
 		}
 
-		public function AdicionarUsuario($login, $nome, $senha, $email, $admin)
+		public function AdicionarUsuario(string $login, string $nome, string $senha, string $email, bool $admin)
 		{
 			$login = parent::LimparString($login);
 			$nome = parent::LimparString($nome);
@@ -122,7 +122,7 @@
 			}
 		}
 		
-		public function removerUsuario($id)
+		public function removerUsuario(int $id)
 		{
 
 			$id = parent::LimparString($id);
@@ -136,7 +136,7 @@
 			$stmt->execute();
 		}
 
-		public function AtualizarLogin($id ,$login)
+		public function AtualizarLogin(int $id , string $login)
 		{
 
 			$id = parent::LimparString($id);
@@ -161,7 +161,7 @@
 			}
 		}
 
-		public function AtualizarEmail($id ,$email)
+		public function AtualizarEmail(int $id , string $email)
 		{
 			$id = parent::LimparString($id);
 			$email = parent::LimparString($email);
@@ -185,7 +185,7 @@
 				$_SESSION['usuario']->setEmail($email);
 			}
 		}
-		public function AtualizarSenha($id ,$senha)
+		public function AtualizarSenha(int $id, string $senha)
 		{
 			$id = parent::LimparString($id);
 			$senha = password_hash($senha, PASSWORD_DEFAULT);
@@ -198,7 +198,7 @@
 
 
 
-		public function AtualizarNome($id, $nome)
+		public function AtualizarNome(int $id, string $nome)
 		{
 			$id = parent::LimparString($id);
 			$nome = parent::LimparString($nome);
@@ -213,7 +213,7 @@
 			}
 		}
 
-		public function AtualizarAdmin($id, $admin)
+		public function AtualizarAdmin(int $id, string $admin)
 		{
 			$id = parent::LimparString($id);
 			if($admin == false && $_SESSION['usuario']->getID() == $id && $_SESSION['usuario']->getAdmin() == 1)
@@ -228,7 +228,7 @@
 		}
 		
 
-		public function getUsuariosFiltro($coluna, $ordem, $primeiro, $ultimo)
+		public function getUsuariosFiltro(string $coluna, string $ordem, int $primeiro, int $ultimo)
 		{
 
 			$coluna = parent::LimparString($coluna);
@@ -243,7 +243,7 @@
 
 		}
 
-		public function encontrarUsuario($id)
+		public function encontrarUsuario(int $id)
 		{
 			$id = parent::LimparString($id);
 			$stmt = $this->con->prepare("select id, login, nome, email, admin from usuario where id = ? limit 1");
@@ -262,7 +262,7 @@
 			return $total;
 		}	
 
-		private function ChecarUnicos($login, $email)
+		private function ChecarUnicos(string $login, string $email)
 		{
 			$login = parent::LimparString($login);
 			$email = parent::LimparString($email);

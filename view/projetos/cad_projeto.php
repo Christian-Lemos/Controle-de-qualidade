@@ -19,7 +19,7 @@
 	$dao = new UsuarioDAO($con);
 
 	$resultado = $dao->getUsuarios();
-	$membrosOpcoes;
+	$membrosOpcoes = "";
 	while($linha = $resultado->fetch(PDO::FETCH_OBJ))
 	{
 		$membrosOpcoes .= '<option value = "'.$linha->id.'">'.$linha->nome.'</option>';

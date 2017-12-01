@@ -3,11 +3,11 @@ $(document).ready(function()
 	var validando = false;
 	
 	$("#form").submit(function(){
-		if(validando == true)
+		if(validando === true)
 		{
 			return;
 		}
-		if($("#login").val() == '')
+		if($("#login").val() === '')
 		{
 			alert("Digite o nome do usuário");
 			$("#login").css("border-color", "red");
@@ -18,7 +18,7 @@ $(document).ready(function()
 			$("#login").css("border-color", "unset");
 		}
 
-		if($("#senha").val() == '')
+		if($("#senha").val() === '')
 		{
 			alert("Digite a senha");
 			$("#senha").css("border-color", "red");
@@ -45,7 +45,7 @@ $(document).ready(function()
 			},
 			success : function(resposta)
 			{
-				if(resposta == "sucesso")
+				if(resposta === "sucesso")
 				{
 					window.location.href = "painel.php";
 					return;
@@ -55,7 +55,7 @@ $(document).ready(function()
 				$("#aviso").text(resposta);
 				$("#btn-entrar").css("margin-top", "12px");
 				validando = false;
-			},
+			}
 
 		});
 

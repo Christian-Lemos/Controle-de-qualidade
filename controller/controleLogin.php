@@ -10,7 +10,7 @@
 	include_once "../dao/UsuarioDAO.php";
 	try
 	{
-$con = ConexaoBD::CriarConexao();
+        $con = ConexaoBD::CriarConexao();
 	$dao = new UsuarioDAO($con);
 	$retorno = $dao->Autenticar($_POST['login'], $_POST['senha']);
 	$_SESSION['usuario'] = $retorno;
