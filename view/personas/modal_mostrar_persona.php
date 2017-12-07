@@ -3,23 +3,19 @@
 
 	if(!isset($_SESSION))
 	{
-		session_start();
+            session_start();
 	}
 	if(!isset ($_SESSION['usuario']) || !isset($_GET['id']))
 	{
-		die();
+            die();
 	}
           
-	include_once '../../util/ConexaoBD.php';
-	include_once '../../model/InteradorDB.php';
-        include_once '../../model/persona.php';
+        include_once '../../model/Persona.php';
         include_once '../../dao/PersonaDAO.php';
         
          echo '<div id = "modal-fechar-div" onclick="fecharmodal()"><span id = "modal-fechar">&times;</span> </div><div id = "modal_conteudo" class = "modal_mostrar_persona_conteudo_div">';
-	$con = ConexaoBD::CriarConexao();
-        $personadao = new PersonaDAO($con);
+        $personadao = new PersonaDAO();
         $persona = $personadao->getPersona($_GET['id']);
-        unset($con);
         
         if($_SESSION['usuario']->getAdmin() == true)
         {?>
@@ -42,12 +38,12 @@ $("#form_edicao_persona").submit(function () {
     var formData = new FormData(this);
 
     $.ajax({
-        url: 'controller/editarpersona.php',
+        url: 'controller/persona/editarpersona.php',
         type: 'POST',
         data: formData,
 		beforeSend : function()
 		{
-			$("#form_cadastro_persona_btn").html("Salvando...");
+                    $("#form_cadastro_persona_btn").html("Salvando...");
 		},
 		
         success: function (data) {
@@ -63,7 +59,7 @@ $("#form_edicao_persona").submit(function () {
 function excluirPersona(id)
 {
    $.ajax({
-      url : 'controller/apagadorPersonas.php',
+      url : 'controller/persona/apagadorPersonas.php',
       type : 'POST',
       data : {id : id},
       beforeSend : function()

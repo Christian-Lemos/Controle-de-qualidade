@@ -2,30 +2,23 @@
 	include_once "../../model/Usuario.php";
 	if(!isset($_SESSION))
 	{
-		session_start();
+            session_start();
 	}
-
 	if($_SESSION['usuario']->getAdmin() == false)
 	{
-		exit();
+            exit();
 	}
-
-	include_once "../../util/ConexaoBD.php";
-
-	include_once '../../model/InteradorDB.php';
 	include_once "../../dao/UsuarioDAO.php";
 
-	$con = ConexaoBD::CriarConexao();
-	$dao = new UsuarioDAO($con);
+	$dao = new UsuarioDAO();
 
 	$resultado = $dao->getUsuarios();
+       
 	$membrosOpcoes = "";
-	while($linha = $resultado->fetch(PDO::FETCH_OBJ))
-	{
-		$membrosOpcoes .= '<option value = "'.$linha->id.'">'.$linha->nome.'</option>';
-	}
-	unset($con);	
-
+        foreach($resultado as $membro)
+        {
+            $membrosOpcoes .= '<option value = "'.$membro->getID().'">'.$membro->getNome().'</option>';
+        }
 ?>
 
 <form id = "form_cadastro_projeto" onsubmit="return false">
@@ -34,14 +27,14 @@
 	<label for = "gerente">Gerente do projeto</label>
 	<select name = "gerente"  id = "gerente" class = "js-example-basic-single">
 		<?php
-			echo $membrosOpcoes;
+                    echo $membrosOpcoes;
 		?>
 	</select>
 	<label for = "desenvolvedores">Desenvolvedores</label>
 	<div id = "cad_projeto_desenvolvedores_div">
 		<select class="js-example-basic-multiple" id = "desenvolvedores"  style = "padding:0;" name="desenvolvedores[]" multiple="multiple" placeholder = "Selecione um desenvolvedor" required>
 		<?php
-			echo $membrosOpcoes;
+                    echo $membrosOpcoes;
 		?>
 		</select>
 	</div>
@@ -53,8 +46,8 @@
 <script type = "text/javascript">
 	$(document).ready(function()
 	{
-		$("#gerente").select2();
-		$('#desenvolvedores').select2();	
+            $("#gerente").select2();
+            $('#desenvolvedores').select2();	
 	});
 </script>
 

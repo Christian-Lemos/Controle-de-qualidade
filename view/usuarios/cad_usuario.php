@@ -2,11 +2,11 @@
 	include_once '../../model/Usuario.php';
 	if(!isset($_SESSION))
 	{
-		session_start();
+            session_start();
 	}
 	if(!isset ($_SESSION['usuario']) || $_SESSION['usuario']->getAdmin() == false)
 	{
-		die();
+            die();
 	}
 ?>
 

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/qualidade/model/Persona.php</file>
-            <file>file:/C:/xampp/htdocs/qualidade/view/modal_editar_usuario.php</file>
-            <file>file:/C:/xampp/htdocs/qualidade/view/personas/visualizar_persona.php</file>
-            <file>file:/C:/xampp/htdocs/qualidade/view/personas/cad_persona.php</file>
-            <file>file:/C:/xampp/htdocs/qualidade/view/modal_confirmacao.php</file>
+            <file>file:/C:/xampp/htdocs/qualidade/model/Projeto.php</file>
+            <file>file:/C:/xampp/htdocs/qualidade/js/carregador.js</file>
+            <file>file:/C:/xampp/htdocs/qualidade/controller/persona/editarpersona.php</file>
+            <file>file:/C:/xampp/htdocs/qualidade/dao/ProjetoDAO.php</file>
+            <file>file:/C:/xampp/htdocs/qualidade/controller/projeto/carregadorPaginacaoCadProjetos.php</file>
+            <file>file:/C:/xampp/htdocs/qualidade/controller/persona/cadastrarpersona.php</file>
+            <file>file:/C:/xampp/htdocs/qualidade/dao/PersonaDAO.php</file>
         </group>
     </open-files>
 </project-private>

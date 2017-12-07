@@ -3,43 +3,37 @@
 
 	if(!isset($_SESSION))
 	{
-		session_start();
+            session_start();
 	}
 
 	if(!isset($_SESSION['usuario']))
 	{
-		die();
+            die();
 	}
 
-
-	include_once "../../util/ConexaoBD.php";
-	include_once "../../model/InteradorDB.php";
 	include_once "../../model/Persona.php";
 	include_once "../../dao/PersonaDAO.php";
 
-	$con = ConexaoBD::CriarConexao();
-	$dao = new PersonaDAO($con);
+	$dao = new PersonaDAO();
 	$personas = $dao->getPersonas();
 	foreach($personas as $persona)
 	{
-		echo '<div class = "persona_show_div_container" data-id = "'.$persona->getID().'">';
-		echo
-		'
-			<!-- <div style = "background-image: url('.$persona->getImagem().');" class = "persona_show_div"></div>-->
-			<div class = "persona_show_divider">
-				<img src = "'.$persona->getImagem().'" class = "persona_show_img"/>
-			</div>
-			<div class = "persona_show_divider">
-				<span>'.$persona->getNome().'</span>
-			</div>
-			<div class = "persona_show_arrow_div">
-				<span></span>
-				<img src = "img/seta_arrow.png" alt = "Visualizar" />
-			</div>
-		';
-			echo "</div>";
+            echo
+            '
+            <div class = "persona_show_div_container" data-id = "'.$persona->getID().'">
+                <div class = "persona_show_divider">
+                        <img src = "'.$persona->getImagem().'" class = "persona_show_img"/>
+                </div>
+                <div class = "persona_show_divider">
+                        <span>'.$persona->getNome().'</span>
+                </div>
+                <div class = "persona_show_arrow_div">
+                        <span></span>
+                        <img src = "img/seta_arrow.png" alt = "Visualizar" />
+                </div>
+            </div>
+            ';
 	}
-
 ?>
 
 <script type = "text/javascript">

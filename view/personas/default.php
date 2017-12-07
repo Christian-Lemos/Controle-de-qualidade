@@ -1,20 +1,15 @@
 <?php
+    include_once "../../model/Usuario.php";
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
 
-	include_once "../model/Usuario.php";
-
-	session_start();
-
-	if(!isset($_SESSION['usuario']))
-
-	{
-
-		exit();
-
-	}
-
+    if(!isset($_SESSION['usuario']))
+    {
+        exit(); 
+    }
 ?>
-
-
 
 <h2>Personas</h2>
 

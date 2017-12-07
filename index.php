@@ -3,7 +3,7 @@
 
 	if(isset($_SESSION['usuario']))
 	{
-		header('location: painel.php');
+		header('location: painel');
 	}
 ?>
 

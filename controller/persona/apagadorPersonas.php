@@ -1,5 +1,5 @@
 <?php
-	include_once '../model/Usuario.php';
+	include_once '../../model/Usuario.php';
         if(!isset($_SESSION))
         {
             session_start();
@@ -10,15 +10,11 @@
             die();
 	}
 
-	include_once '../util/ConexaoBD.php';
-	include_once "../model/InteradorDB.php";
-	include_once '../dao/PersonaDAO.php';
+	include_once '../../dao/PersonaDAO.php';
         
 	try
 	{
-            $con = ConexaoBD::CriarConexao();
-            $dao = new PersonaDAO($con);
-
+            $dao = new PersonaDAO();
             $dao->removerPersona($_POST['id']);
             echo "Persona removida com sucesso";
 	}

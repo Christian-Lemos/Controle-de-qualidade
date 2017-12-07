@@ -43,7 +43,7 @@
 
 				$.ajax
 				({
-					url : 'controller/apagadorUsuarios.php',
+					url : 'controller/usuario/apagadorUsuarios.php',
 					method : 'POST',
 					data : {id : <?php echo $usuario->getID(); ?>},
 
@@ -73,7 +73,7 @@
 
 				$.ajax
 				({
-					url : 'controller/apagadorProjetos.php',
+					url : 'controller/projeto/apagadorProjetos.php',
 					method : 'POST',
 					data : {id : <?php echo $projeto->getID(); ?>},
 
