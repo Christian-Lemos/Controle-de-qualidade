@@ -793,6 +793,42 @@ main h1
    text-indent: 50px;
 }
 
+.pesquisa_user_proj
+{
+    display: inline-block;
+    width: 80%;
+    margin-bottom: 15px;
+    text-align:left;
+}
+
+.pesquisa_user_proj label
+{
+    margin-bottom: 10px;
+}
+
+.pesquisa_user_proj label
+{
+    margin-bottom: 10px;
+}
+
+.pesquisa_user_proj input
+{
+    width: 80%;
+    float: left;
+    padding: 5px;
+}
+
+.pesquisa_user_proj button
+{
+    float: left;
+    background-color: #6969de;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 7px;
+    margin-left: 10px;
+}
+
 @media screen and (max-width:570px)
 {
 	.persona_show_div_container .persona_show_divider:first-child

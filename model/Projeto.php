@@ -18,8 +18,13 @@ class Projeto
         $this->nomegerente = $nomegerente;
         $dataInicio = date('d-m-Y', strtotime($dataInicio));
         $dataInicio = str_replace('-', '/', $dataInicio);
-        $dataTermino = date('d-m-Y', strtotime($dataTermino));
-        $dataTermino = str_replace('-', '/', $dataTermino);
+        
+        if($dataTermino != "")
+        {
+             $dataTermino = date('d-m-Y', strtotime($dataTermino));
+             $dataTermino = str_replace('-', '/', $dataTermino);
+        }
+       
         $this->dataInicio = $dataInicio;
         $this->dataTermino = $dataTermino;
         $this->desenvolvedores = $desenvolvedores;

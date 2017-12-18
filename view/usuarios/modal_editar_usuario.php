@@ -27,7 +27,7 @@
          <label for = "login_atual">Login Atual:</label>
          <input type  = "text" name = "login_atual" id = "login_atual" value = "<?php echo $usuario->getLogin() ?>" disabled />
          <label for = "login_novo">Login Novo:</label>
-         <input type  = "text" name = "login_novo" id = "login_novo" placeholder = "Novo login..." />
+         <input type  = "text" name = "login_novo" class ="edit_usuario_form_novo" id = "login_novo" placeholder = "Novo login..." />
          <span id = "edit_usuario_form_login_span"></span>
          <div class = "mostrar_edit_usuario_div_btn_div">
             <button type = "submit" id = "edit_usuario_form_login_btn">Editar</button>
@@ -41,7 +41,7 @@
          <label for = "nome_atual">Nome Atual:</label>
          <input type  = "text" name = "nome_atual" id = "nome_atual" value = "<?php echo $usuario->getNome() ?>" disabled />
          <label for = "nome_novo">Nome Novo:</label>
-         <input type  = "text" name = "nome_novo" id = "nome_novo" placeholder = "Novo nome..." />
+         <input type  = "text" name = "nome_novo" class ="edit_usuario_form_novo" id = "nome_novo" placeholder = "Novo nome..." />
          <span id = "edit_usuario_form_nome_span"></span>
          <div class = "mostrar_edit_usuario_div_btn_div">
             <button type = "submit" id = "edit_usuario_form_nome_btn">Editar</button>
@@ -98,7 +98,7 @@ $(document).ready(function() {
             return;
         }
         validando = true;
-
+        
         var dadonovo = $("#login_novo").val();
 
         $.ajax({
@@ -120,6 +120,7 @@ $(document).ready(function() {
                     $("#login_atual").val(dadonovo);
                     $("#login_novo").val('');
                     $("#edit_usuario_form_login_span").html("");
+                     $('.visualizar_proj_usuario_table tbody tr[data-id="'+id+'"] .visualizar_usuario_td_login').html(dadonovo);
                     alert("Login atualizado com sucesso");
                 } else {
                     $("#edit_usuario_form_login_span").html(resposta);
@@ -137,7 +138,6 @@ $(document).ready(function() {
             return;
         }
         validando = true;
-
         var dadonovo = $("#nome_novo").val();
 
         $.ajax({
@@ -159,6 +159,8 @@ $(document).ready(function() {
                     $("#nome_atual").val(dadonovo);
                     $("#nome_novo").val('');
                     $("#edit_usuario_form_nome_span").html('');
+                    
+                     $('.visualizar_proj_usuario_table tbody tr[data-id="'+id+'"] .visualizar_usuario_td_nome').html(dadonovo);
                     alert("Nome atualizado com sucesso");
                 } else {
                     $("#edit_usuario_form_nome_span").html(resposta);
@@ -168,7 +170,7 @@ $(document).ready(function() {
             }
 
         });
-    });
+    }); 
 
     $("#edit_usuario_form_email_btn").on('click', function() {
         if (validando == true) {

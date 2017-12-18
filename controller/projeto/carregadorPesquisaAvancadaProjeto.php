@@ -11,7 +11,7 @@
     }
     include_once '../../dao/ProjetoDAO.php';
     $dao = new ProjetoDAO();
-    $resultado = $dao->getProjetosFiltro($_GET['ordenacao'], $_GET['ordem'], $_GET['inicio'], $_GET['fim']);
+    $resultado = $dao->getProjetosFiltroAvancada($_GET['ordenacao'], $_GET['ordem'], 0, 5, $_GET['pesquisa']);
     echo '
     <table id = "visualisar_usuarios_table" class = "visualizar_proj_usuario_table">
     <thead>

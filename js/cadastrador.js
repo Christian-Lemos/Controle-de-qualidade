@@ -1,8 +1,7 @@
 $(document).ready(function() {
     var validando = false;
     var validando2 = false;
-    $('#pa-main').on('submit', '#usuario_view', '#form_cadastro_usuario', function() {
-
+    $('#pa-main').on('submit', '#form_cadastro_usuario', function() {
         if (validando == true) {
             return;
         }
@@ -88,12 +87,11 @@ $(document).ready(function() {
 
     });
 
-    $('#pa-main').on('submit', '#projeto_view', '#form_cadastro_projeto', function() {
+    $('#pa-main').on('submit', '#form_cadastro_projeto', function() {
         if (validando2 == true) {
             return;
         }
         validando2 = true;
-
         var data = $("#form_cadastro_projeto").serialize();
 
         $.ajax({

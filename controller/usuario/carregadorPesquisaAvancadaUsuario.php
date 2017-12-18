@@ -14,7 +14,7 @@
     include_once '../../dao/UsuarioDAO.php';
     $dao = new UsuarioDAO();
     
-    $resultado = $dao->getUsuariosFiltro($_GET['ordenacao'], $_GET['ordem'], $_GET['inicio'], $_GET['fim']);
+    $resultado = $dao->getUsuariosFiltroAvancado($_GET['ordenacao'], $_GET['ordem'], 0, 5, $_GET['pesquisa']);
     echo 
     '
         <table id = "visualisar_usuarios_table" class = "visualizar_proj_usuario_table">

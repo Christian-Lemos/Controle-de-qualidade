@@ -255,6 +255,23 @@
             parent::fecharConexao();
             return $usuarios;
         }
+        public function getUsuariosFiltroAvancado(string $coluna, string $ordem, int $primeiro, int $ultimo, string $like)
+        {
+            $coluna = parent::LimparString($coluna);
+            $ordem = parent::LimparString($ordem);
+            $primeiro = parent::LimparString($primeiro);
+            $ultimo = parent::LimparString($ultimo);
+            parent::criarConexao();
+            $stmt = parent::getCon()->prepare("select id, login, nome, email, admin from usuario where nome like '%".$like."%' order by ".$coluna." ".$ordem." limit ".$primeiro.", ".$ultimo);
+            $stmt->execute();
+            $usuarios = array();
+            while($linha = $stmt->fetch(PDO::FETCH_OBJ))
+            {
+                $usuarios[] = new Usuario($linha->id, $linha->login,  $linha->nome, $linha->email, $linha->admin);
+            }
+            parent::fecharConexao();
+            return $usuarios;
+        }
 
         public function encontrarUsuario(int $id)
         {

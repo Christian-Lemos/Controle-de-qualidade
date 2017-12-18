@@ -21,7 +21,6 @@
                 break;
             case 'nome':
                 $dao->AtualizarNome($_POST['id'], $_POST['novo']);
-                echo "sucesso";
                 break;
             case 'email':
                 $dao->AtualizarEmail($_POST['id'], $_POST['novo']);

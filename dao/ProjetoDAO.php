@@ -98,6 +98,23 @@
             parent::fecharConexao();
             return $projetos;
         }
+        
+        public function getProjetosFiltroAvancada(string $coluna, string $ordem, int $primeiro, int $ultimo, string $like)
+        {
+            parent::criarConexao();
+            $stmt = parent::getCon()->prepare("select * from projeto where nome like '%".$like."%'  order by ".$coluna." ".$ordem." limit ".$primeiro.", ".$ultimo);
+            $stmt->execute();
+            
+            $projetos = array();
+            while($linha = $stmt->fetch(PDO::FETCH_OBJ))
+            {
+                $projeto = new Projeto($linha->id, $linha->nome, $linha->gerente, $linha->nomegerente, $linha->datainicio, $linha->datatermino, null);
+                $projetos[] = $projeto;
+                
+            }
+            parent::fecharConexao();
+            return $projetos;
+        }
 
         public function getTotalProjetos()
         {
